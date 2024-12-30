@@ -38,7 +38,7 @@ public:
         cout << "\nEnter amount for the account to start with: ";
         cin >> init_deposite;
 
-        cout << "Your account has been created with an initial amount of " << init_deposite
+        cout << "Your account has been created with an initial amount of: $" << init_deposite
              << ". Your account number is " << acount_num << endl;
 
         bank_customers.push_back(Bank_Customer(name, acount_num, phone_num, init_deposite));
