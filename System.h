@@ -63,7 +63,9 @@ class System {
 
         void displayCars() {
             for (auto& car : cars) {
-                car.display();
+                if (car.isAvaileble){
+                    car.display();
+                }
             }
         }
 
