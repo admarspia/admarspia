@@ -176,47 +176,35 @@ int car_rental(BankSystem& bankSystem) {
     return 0;
 }
 int main() {
+    BankSystem bankSystem;
     int choice;
 
     while (true) {
-        // Display main menu
         displayMainMenu();
         cin >> choice;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "\nInvalid input! Please enter a valid number." << endl;
+            cout << "\nInvalid input! Please enter a valid number.\n";
             continue;
         }
 
         switch (choice) {
             case 1:
-                while (true) {
-                    displayBankManagementMenu();
-                    cin >> choice;
-                    if (choice == 8) break; // Return to main menu
-                }
+                bank_manegmant_system(bankSystem);
                 break;
-
             case 2:
-                while (true) {
-                    displayCarRentalMenu();
-                    cin >> choice;
-                    if (choice == 7) break; // Return to main menu
-                }
+                car_rental(bankSystem);
                 break;
-
             case 3:
-                cout << "\nThank you for using MEXOOT. Goodbye!" << endl;
+                cout << "\nThank you for using MEXOOT. Goodbye!\n";
                 return 0;
-
             default:
-                cout << "\nInvalid choice! Please select 1, 2, or 3." << endl;
+                cout << "\nInvalid choice! Please select 1, 2, or 3.\n";
         }
     }
 
     return 0;
 }
-
 
