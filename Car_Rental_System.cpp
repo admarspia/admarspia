@@ -19,63 +19,54 @@ void setColor(int colorCode) {
 void displayHeader(const string& title) {
     setColor(34); // Blue
     cout << "========================================================================================" << endl;
-    cout << R"(
-
-          ███████████████╗   ████████████╗     ███████╗███████║  ██████╗   ██████╗    █████████████║
-          ███╔══███╔═══██║   ███╔════════╝     ██╔══██║██║  ██║ ██╔═══██╗ ██╔═══██╗   ██╔══███╔══██║
-          ███║  ███║   ██║   ███║ ███████║     ╚═╝  ██║██║  ╚═╝ ██║   ██║ ██║   ██║   ╚═╝  ███║  ╚═╝
-          ███║  ███║   ██║   ███╔════════╝          ██║██║      ██║   ██║ ██║   ██║        ███║
-          ███║  ███║   ██║   ███║ ███████║     ║██████║███████║ ╚██████╔╝ ╚██████╔╝        ███║
-          ╚══╝  ╚══╝   ╚═╝   ╚══╝ ═══════╝     ╚══════╝╚══════╝  ╚═════╝   ╚═════╝         ╚══╝
-                                                           
-  )" << endl;
-
-    setColor(33); // Yellow
-    cout << setw(50) << title << endl;
-    setColor(34); // Blue
-    cout << "=========================================================================================" << endl;
-    setColor(0);  // Reset
-}
-
-// Function to display the main menu
-void displayMainMenu() {
-    displayHeader("WELCOME TO MEXOOT");
-    cout << "\n"
-         << "Please select an option below:\n\n";
-    setColor(32); // Green
-    cout << "  1. Bank Management System\n";
-    cout << "  2. Car Rental System\n";
-    cout << "  3. Exit Application\n";
-    setColor(0);  // Reset
-    cout << "\nEnter your choice: ";
-}
-
-
-// Bank management menu
-int bank_manegmant_system(BankSystem& bankSystem) {
-    int cust_choice;
-
     while (true) {
-        displayHeader("BANK MANAGEMENT SYSTEM");
-        cout << "\nManage your bank account:\n\n";
-        cout << "  1. Add a New User\n";
-        cout << "  2. Deposit Money\n";
-        cout << "  3. Display All Users\n";
-        cout << "  4. Make a Withdrawal\n";
-        cout << "  5. Transfer Funds\n";
-        cout << "  6. Check Balance\n";
+        displayHeader("CAR RENTAL SYSTEM");
+        cout << "\nExplore our services:\n\n";
+        cout << "  1. Register as a New Customer\n";
+        cout << "  2. View Available Cars\n";
+        cout << "  3. Rent a Car\n";
+        cout << "  4. Return a Car\n";
+        cout << "  5. Handle Payment\n";
+        cout << "  6. Pay via Bank Account\n";
         cout << "  7. Return to Main Menu\n";
         cout << "\nEnter your choice: ";
 
-        cin >> cust_choice;
+        cin >> customerChoice;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input! Please enter a number between 1 and 7." << endl;
+            cout << "Invalid input. Please enter a valid number.\n";
             continue;
         }
 
+        switch (customerChoice) {
+            case 1:
+                system.addCustomer();
+                break;
+            case 2:
+                system.displayCars();
+                break;
+            case 3:
+                system.rentCar();
+                break;
+            case 4:
+                system.return_car();
+                break;
+            case 5:
+                system.handle_Payment();
+                break;
+            case 6:
+                system.Pay_using_bank(bankSystem);
+                break;
+            case 7:
+                cout << "Returning to the main menu.\n";
+                return 0;
+            default:
+                cout << "Invalid choice. Please try again.\n";
+        }
+    }
+}
         switch (cust_choice) {
             case 1:
                 bankSystem.addUser();
