@@ -51,21 +51,22 @@ void displayMainMenu() {
 }
 
 
+// Bank management menu
 int bank_manegmant_system(BankSystem& bankSystem) {
     int cust_choice;
 
     while (true) {
-        cout << "************************" << endl;
-        cout << "*** WELCOME TO CBAA ***" << endl;
-        cout << "************************" << endl;
-        cout << "1. Add user" << endl;
-        cout << "2. Deposit" << endl;
-        cout << "3. Display all users" << endl;
-        cout << "4. Make withdrawal" << endl;
-        cout << "5. Transfer" << endl;
-        cout << "6. See your balance" << endl;
-        cout << "7. Return to main menu" << endl;
-        cout << "Enter your choice: ";
+        displayHeader("BANK MANAGEMENT SYSTEM");
+        cout << "\nManage your bank account:\n\n";
+        cout << "  1. Add a New User\n";
+        cout << "  2. Deposit Money\n";
+        cout << "  3. Display All Users\n";
+        cout << "  4. Make a Withdrawal\n";
+        cout << "  5. Transfer Funds\n";
+        cout << "  6. Check Balance\n";
+        cout << "  7. Return to Main Menu\n";
+        cout << "\nEnter your choice: ";
+
         cin >> cust_choice;
 
         if (cin.fail()) {
@@ -95,15 +96,12 @@ int bank_manegmant_system(BankSystem& bankSystem) {
                 bankSystem.showBalance();
                 break;
             case 7:
-                cout << "Returning to the main menu." << endl;
+                cout << "Returning to the main menu.\n";
                 return 0;
-
             default:
-                cout << "Invalid input! Please try again." << endl;
+                cout << "Invalid choice! Please try again.\n";
         }
     }
-
-    return 0;
 }
 
 int car_rental(BankSystem& bankSystem) {
