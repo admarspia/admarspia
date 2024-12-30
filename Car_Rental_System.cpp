@@ -10,6 +10,47 @@
 #include "BnakSystem.h"
 using namespace std;
 
+// Function for color output
+void setColor(int colorCode) {
+    cout << "\033[" << colorCode << "m";
+}
+
+// Function to display the header
+void displayHeader(const string& title) {
+    setColor(34); // Blue
+    cout << "========================================================================================" << endl;
+    cout << R"(
+
+          ███████████████╗  ███████╗███████║  ██████╗   ██████╗    █████████████║
+          ███╔══███╔═══██║  ██╔══██║██║  ██║ ██╔═══██╗ ██╔═══██╗   ██╔══███╔══██║
+          ███║  ███║   ██║  ╚═╝  ██║██║  ╚═╝ ██║   ██║ ██║   ██║   ╚═╝  ███║  ╚═╝
+          ███║  ███║   ██║       ██║██║      ██║   ██║ ██║   ██║        ███║
+          ███║  ███║   ██║  ║██████║███████║ ╚██████╔╝ ╚██████╔╝        ███║
+          ╚══╝  ╚══╝   ╚═╝  ╚══════╝╚══════╝  ╚═════╝   ╚═════╝         ╚══╝
+                                                           
+  )" << endl;
+
+    setColor(33); // Yellow
+    cout << setw(50) << title << endl;
+    setColor(34); // Blue
+    cout << "=========================================================================================" << endl;
+    setColor(0);  // Reset
+}
+
+// Function to display the main menu
+void displayMainMenu() {
+    displayHeader("WELCOME TO MEXOOT");
+    cout << "\n"
+         << "Please select an option below:\n\n";
+    setColor(32); // Green
+    cout << "  1. Bank Management System\n";
+    cout << "  2. Car Rental System\n";
+    cout << "  3. Exit Application\n";
+    setColor(0);  // Reset
+    cout << "\nEnter your choice: ";
+}
+
+
 int bank_manegmant_system(BankSystem& bankSystem) {
     int cust_choice;
 
@@ -139,88 +180,6 @@ int car_rental(BankSystem& bankSystem) {
 
     return 0;
 }
-
-#include <iostream>
-#include <iomanip> // For alignment
-#include <string>
-#include <limits> // For clearing invalid inputs
-using namespace std;
-
-// Function for color output
-void setColor(int colorCode) {
-    cout << "\033[" << colorCode << "m";
-}
-
-// Function to display the header
-void displayHeader(const string& title) {
-    setColor(34); // Blue
-    cout << "========================================================================================" << endl;
-    cout << R"(
-
-          ███████████████╗  ███████╗███████║  ██████╗   ██████╗    █████████████║
-          ███╔══███╔═══██║  ██╔══██║██║  ██║ ██╔═══██╗ ██╔═══██╗   ██╔══███╔══██║ 
-          ███║  ███║   ██║  ╚═╝  ██║██║  ╚═╝ ██║   ██║ ██║   ██║   ╚═╝  ███║  ╚═╝
-          ███║  ███║   ██║       ██║██║      ██║   ██║ ██║   ██║        ███║
-          ███║  ███║   ██║  ║██████║███████║ ╚██████╔╝ ╚██████╔╝        ███║
-          ╚══╝  ╚══╝   ╚═╝  ╚══════╝╚══════╝  ╚═════╝   ╚═════╝         ╚══╝
-                                                           
-  )" << endl;
- 
-
-    setColor(33); // Yellow
-    cout << setw(50) << title << endl;
-    setColor(34); // Blue
-    cout << "=========================================================================================" << endl;
-    setColor(0);  // Reset
-}
-
-// Function to display the main menu
-void displayMainMenu() {
-    displayHeader("WELCOME TO MEXOOT");
-    cout << "\n"
-         << "Please select an option below:\n\n";
-    setColor(32); // Green
-    cout << "  1. Bank Management System\n";
-    cout << "  2. Car Rental System\n";
-    cout << "  3. Exit Application\n";
-    setColor(0);  // Reset
-    cout << "\nEnter your choice: ";
-}
-
-// Function to display car rental menu
-void displayCarRentalMenu() {
-    displayHeader("CAR RENTAL SYSTEM");
-    cout << "\n"
-         << "Explore our services:\n\n";
-    setColor(36); // Cyan
-    cout << "  1. Register as a New Customer\n";
-    cout << "  2. View Available Cars\n";
-    cout << "  3. Rent a Car\n";
-    cout << "  4. Return a Car\n";
-    cout << "  5. Handle Payment\n";
-    cout << "  6. Pay via Bank Account\n";
-    cout << "  7. Return to Main Menu\n";
-    setColor(0);  // Reset
-    cout << "\nEnter your choice: ";
-}
-
-// Function to display bank management menu
-void displayBankManagementMenu() {
-    displayHeader("BANK MANAGEMENT SYSTEM");
-    cout << "\n"
-         << "Manage your bank account:\n\n";
-    setColor(35); // Magenta
-    cout << "  1. Add a New User\n";
-    cout << "  2. Deposit Money\n";
-    cout << "  3. Display All Users\n";
-    cout << "  4. Make a Withdrawal\n";
-    cout << "  5. Transfer Funds\n";
-    cout << "  6. Check Balance\n";
-    cout << "  7. Return to Main Menu\n";
-    setColor(0);  // Reset
-    cout << "\nEnter your choice: ";
-}
-
 int main() {
     int choice;
 
