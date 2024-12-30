@@ -104,13 +104,12 @@ int bank_manegmant_system(BankSystem& bankSystem) {
     }
 }
 
+// Car rental menu
 int car_rental(BankSystem& bankSystem) {
     System system;
-
-    // Pre-load some cars
-
+// Pre-load some cars
     system.addCar("Toyota Corolla", "Toyota", 2022, 0.01);
-    system.addCar("Ford Mustang", "Ford", 20210, 0.01);
+    system.addCar("Ford Mustang", "Ford", 2021, 0.01);
     system.addCar("Honda Civic", "Honda", 2020, 0.02);
     system.addCar("Chevrolet Camaro", "Chevrolet", 2019, 0.03);
     system.addCar("Tesla Model 3", "Tesla", 2023, 0.01);
@@ -119,9 +118,7 @@ int car_rental(BankSystem& bankSystem) {
     system.addCar("Mercedes-Benz C-Class", "Mercedes-Benz", 2023, 0.01);
     system.addCar("Audi A4", "Audi", 2021, 0.01);
     system.addCar("Volkswagen Passat", "Volkswagen", 2020, 0.04);
-
     int customerChoice;
-
     while (true) {
         cout << "\n*** Welcome to the Car Rental System ***" << endl;
         cout << "Please enter: \n"
