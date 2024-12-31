@@ -12,7 +12,7 @@ class System {
     public:
         vector<Car> cars;
         vector<Customer> customers;
-        BankSystem* bankSystem; // Pointer to BankSystem for association
+        BankSystem* bankSystem; 
 
 
 
@@ -46,8 +46,8 @@ class System {
             cin >> phone_number;
 
             if (cin.fail() || phone_number.length() != 10 || !all_of(phone_number.begin(), phone_number.end(), ::isdigit)) {
-                cin.clear();  // Clear the fail state
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Discard invalid input
+                cin.clear(); 
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');  
                 cout << "Invalid phone number! It must be exactly 10 digits and contain only numbers." << endl;
                 cout << "\nEnter your phone number: ";
                 cin >> phone_number;
