@@ -8,7 +8,6 @@
 using namespace std;
 using namespace std::chrono;
 
-// Struct definitions
 struct Car {
     string model;
     string made;
@@ -27,7 +26,6 @@ struct Customer {
     high_resolution_clock::time_point endTime;
 };
 
-// Function declarations
 void addCar(vector<Car>& cars, const string& model, const string& made, int year, double paymentPerSecond);
 void displayCars(const vector<Car>& cars);
 void addUser(vector<Customer>& customers);
@@ -39,7 +37,6 @@ int main() {
     vector<Car> cars;
     vector<Customer> customers;
 
-    // Add sample cars
     addCar(cars, "Toyota Corolla", "Toyota", 2022, 0.01);
     addCar(cars, "Ford Mustang", "Ford", 2021, 0.01);
     addCar(cars, "Honda Civic", "Honda", 2020, 0.02);
@@ -61,10 +58,10 @@ int main() {
         int choice;
         cin >> choice;
 
-        // Validate input
+    
         if (cin.fail() || choice < 1 || choice > 6) {
-            cin.clear(); // Clear invalid input
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
             cout << "\nInvalid input. Please enter a number between 1 and 6.\n" << endl;
             continue;
         }
@@ -96,7 +93,7 @@ int main() {
     return 0;
 }
 
-// Function implementations
+
 void addCar(vector<Car>& cars, const string& model, const string& made, int year, double paymentPerSecond) {
     cars.push_back({model, made, year, paymentPerSecond, true});
 }
@@ -161,7 +158,7 @@ void rentCar(vector<Car>& cars, vector<Customer>& customers) {
             break;
         }
     }
-
+// Function implementations
     if (!car) {
         cout << "Car not available or not found.\n";
         return;
@@ -225,5 +222,5 @@ void handlePayment(vector<Customer>& customers) {
     cout << "Total time rented: " << duration.count() << " seconds.\n";
     cout << "Total payment: $" << totalPayment << "\n";
 
-    customer->rentedCar = nullptr; // Clear rented car after payment
+    customer->rentedCar = nullptr; 
 }
