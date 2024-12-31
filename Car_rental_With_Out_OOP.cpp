@@ -119,6 +119,22 @@ void addUser(vector<Customer>& customers) {
     cout << "Enter your phone number: ";
     cin >> phone;
 
+    Customer* customer = nullptr;
+    for (auto& cust : customers) {
+        if (cust.phone == phone) {
+            customer = &cust;
+            break;
+        }
+    }
+
+    if (!customer) {
+        customers.push_back({name, address, phone, false, nullptr});
+        cout << "User registered successfully.\n";        return;
+    }
+    else{
+        cout << "Acount already in use please check out your name and phone number." << endl;
+    }
+
     customers.push_back({name, address, phone, false, nullptr});
     cout << "User registered successfully.\n";
 }
@@ -158,7 +174,7 @@ void rentCar(vector<Car>& cars, vector<Customer>& customers) {
             break;
         }
     }
-// Function implementations
+    
     if (!car) {
         cout << "Car not available or not found.\n";
         return;
