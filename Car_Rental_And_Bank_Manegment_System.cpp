@@ -10,14 +10,12 @@
 #include "BnakSystem.h"
 using namespace std;
 
-// Function for color output
 void setColor(int colorCode) {
     cout << "\033[" << colorCode << "m";
 }
 
-// Function to display the header
 void displayHeader(const string& title) {
-    setColor(34); // Blue
+    setColor(34); 
     cout << "=====================================================================================================================" << endl;
     cout << R"(
 
@@ -30,27 +28,25 @@ void displayHeader(const string& title) {
                                                            
   )" << endl;
 
-    setColor(33); // Yellow
+    setColor(33); 
     cout << setw(50) << title << endl;
-    setColor(34); // Blue
+    setColor(34); 
     cout << "======================================================================================================================" << endl;
-    setColor(0);  // Reset
+    setColor(0);  
 }
 
-// Function to display the main menu
 void displayMainMenu() {
     displayHeader("WELCOME TO MEXOOT");
     cout << "\n"
          << "Please select an option below:\n\n";
-    setColor(32); // Green
+    setColor(32); 
     cout << "  1. Bank Management System\n";
     cout << "  2. Car Rental System\n";
     cout << "  3. Exit Application\n";
-    setColor(0);  // Reset
+    setColor(0);  
     cout << "\nEnter your choice: ";
 }
 
-// Bank management menu
 int bank_manegmant_system(BankSystem& bankSystem) {
     int cust_choice;
 
@@ -103,11 +99,9 @@ int bank_manegmant_system(BankSystem& bankSystem) {
     }
 }
 
-// Car rental menu
 int car_rental(BankSystem& bankSystem) {
     System system;
 
-    // Pre-load some cars
     system.addCar("Toyota Corolla", "Toyota", 2022, 0.01);
     system.addCar("Ford Mustang", "Ford", 2021, 0.01);
     system.addCar("Honda Civic", "Honda", 2020, 0.02);
