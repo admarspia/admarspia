@@ -15,7 +15,6 @@
 - 🔐 Deep dive into cybersecurity, systems programming, and Linux internals
 - 🧱 Currently building **boxwright**, a Linux process sandbox / mini-container runtime in C++ (namespaces, pivot_root, cgroups v2, seccomp-bpf)
 - 📓 Documenting everything in **linux-system-programming**, a personal lab on Linux internals from first principles
-- 🧭 Long-term track: binary exploitation → reverse engineering → exploit development (OSCP/OSED)
 ---
 
 ### 🧰 Tech Stack
